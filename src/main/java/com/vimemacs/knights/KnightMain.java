@@ -6,8 +6,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class KnightMain {
     public static void main(String[] args) throws QuestException {
-        ApplicationContext context = new ClassPathXmlApplicationContext("knights.xml");
+        // 加载 spring 上下文
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring/knights.xml");
+        // 获取 knight Bean
         Knight knight = (Knight) context.getBean("knight");
+        // 使用 knight
         knight.embarkOnQuest();
     }
 }

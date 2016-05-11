@@ -8,7 +8,7 @@
     <!-- 如果不指定, ContextLoaderListener 默认会载入 /WEB-INF/applicationContext.xml -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/applicationContext.xml</param-value>
+        <param-value>classpath:spring/*.xml</param-value>
     </context-param>
     <!-- Spring ApplicationContext 载入 -->
     <listener>
