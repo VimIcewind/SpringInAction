@@ -1,4 +1,4 @@
-package vimemacs.knights;
+package com.vimemacs.knights;
 
 import com.vimemacs.exception.QuestException;
 import com.vimemacs.knights.impl.BraveKnight;
