@@ -20,4 +20,8 @@
 
     <bean id="theStage" class="com.vimemacs.springidol.Stage" factory-method="getInstance"/>
 
+    <bean id="ticket" class="com.vimemacs.springidol.Ticket" scope="prototype"/>
+
+    <bean id="ticket1" class="com.vimemacs.springidol.Ticket"/>
+
 </beans>
