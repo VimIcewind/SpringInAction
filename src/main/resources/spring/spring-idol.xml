@@ -24,4 +24,6 @@
 
     <bean id="ticket1" class="com.vimemacs.springidol.Ticket"/>
 
+    <bean id="auditorium" class="com.vimemacs.springidol.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"/>
+
 </beans>
