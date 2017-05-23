@@ -7,8 +7,23 @@
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 
+    <bean id="duke" class="com.vimemacs.springidol.Juggler">
+        <constructor-arg value="15"/>
+    </bean>
+
+    <bean id="sonnet29" class="com.vimemacs.springidol.Sonnet29"/>
+
+    <bean id="poeticDuke" class="com.vimemacs.springidol.PoeticJuggler">
+        <constructor-arg value="15"/>
+        <constructor-arg ref="sonnet29"/>
+    </bean>
+
+    <bean id="theStage" class="com.vimemacs.springidol.Stage" factory-method="getInstance"/>
+
     <bean id="ticket" class="com.vimemacs.springidol.Ticket" scope="prototype"/>
 
     <bean id="ticket1" class="com.vimemacs.springidol.Ticket"/>
+
+    <bean id="auditorium" class="com.vimemacs.springidol.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"/>
 
 </beans>
