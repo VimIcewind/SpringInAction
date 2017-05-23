@@ -1,5 +1,6 @@
 package com.vimemacs.springidol;
 
+import org.junit.Test;
 import org.omg.CORBA.portable.ApplicationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,8 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by HWD on 2017/5/23.
  */
-public class TicketMain {
-    public static void main(String[] args) {
+public class TicketTest {
+    @Test
+    public void prototype() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
         Ticket ticket = (Ticket) ctx.getBean("ticket");
         System.out.println(ticket);
