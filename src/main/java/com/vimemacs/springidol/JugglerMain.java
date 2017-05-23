@@ -11,7 +11,8 @@ public class JugglerMain {
     public static void main(String[] args) throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
         Performer performer = (Performer) ctx.getBean("duke");
-
+        performer.perform();
+        performer = (Performer) ctx.getBean("poeticDuke");
         performer.perform();
     }
 }
