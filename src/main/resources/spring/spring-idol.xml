@@ -30,6 +30,12 @@
 
     <bean id="piano" class="com.vimemacs.springidol.Piano"/>
 
+    <bean id="guitar" class="com.vimemacs.springidol.Guitar"/>
+
+    <bean id="cymbal" class="com.vimemacs.springidol.Cymbal"/>
+
+    <bean id="harmonica" class="com.vimemacs.springidol.Harmonica"/>
+
     <bean id="kenny" class="com.vimemacs.springidol.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
@@ -37,4 +43,34 @@
     </bean>
 
     <bean id="kennyp" class="com.vimemacs.springidol.Instrumentalist" p:song="Jingle Bells" p:instrument-ref="saxophone"/>
+
+    <bean id="hank" class="com.vimemacs.springidol.OneManBand">
+        <property name="instruments">
+            <list>
+                <ref bean="guitar"/>
+                <ref bean="cymbal"/>
+                <ref bean="harmonica"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="hankmap" class="com.vimemacs.springidol.OneManBandMap">
+        <property name="instruments">
+            <map>
+                <entry key="GUITAR" value-ref="guitar"/>
+                <entry key="CYMBAL" value-ref="cymbal"/>
+                <entry key="HARMONICA" value-ref="harmonica"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="hankprop" class="com.vimemacs.springidol.OneManBandProperties">
+        <property name="instruments">
+            <props>
+                <prop key="GUITAR">STRUM STRUM STRUM</prop>
+                <prop key="CYMBAL">CRASH CRASH CRASH</prop>
+                <prop key="HARMONICA">HUM HUM HUM</prop>
+            </props>
+        </property>
+    </bean>
 </beans>
