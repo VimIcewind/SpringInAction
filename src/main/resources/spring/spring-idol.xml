@@ -73,4 +73,15 @@
             </props>
         </property>
     </bean>
+
+    <bean id="songSelector" class="com.vimemacs.springidol.SongSelector">
+        <constructor-arg value="My Love"/>
+    </bean>
+
+    <bean id="carl" class="com.vimemacs.springidol.Instrumentalist">
+        <property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>
+        <property name="instrument" value="#{kenny.instrument}"/>
+    </bean>
+
+
 </beans>

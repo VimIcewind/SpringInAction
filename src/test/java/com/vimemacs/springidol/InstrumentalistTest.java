@@ -22,4 +22,11 @@ public class InstrumentalistTest {
         Performer performer = (Performer) ctx.getBean("kennyp");
         performer.perform();
     }
+
+    @Test
+    public void carl() throws PerformanceException {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
+        Performer performer = (Performer) ctx.getBean("carl");
+        performer.perform();
+    }
 }
