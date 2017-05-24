@@ -15,7 +15,9 @@
 
     <bean id="poeticDuke" class="com.vimemacs.springidol.PoeticJuggler">
         <constructor-arg value="15"/>
-        <constructor-arg ref="sonnet29"/>
+        <constructor-arg>
+            <bean class="com.vimemacs.springidol.Sonnet29"/>
+        </constructor-arg>
     </bean>
 
     <bean id="theStage" class="com.vimemacs.springidol.Stage" factory-method="getInstance"/>
@@ -33,6 +35,8 @@
     <bean id="kenny" class="com.vimemacs.springidol.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
-        <property name="instrument" ref="piano"/>
+        <property name="instrument">
+            <bean class="com.vimemacs.springidol.Saxophone"/>
+        </property>
     </bean>
 </beans>
