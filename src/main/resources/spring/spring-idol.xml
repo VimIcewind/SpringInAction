@@ -22,13 +22,17 @@
 
     <bean id="ticket" class="com.vimemacs.springidol.Ticket" scope="prototype"/>
 
+    <bean id="ticket1" class="com.vimemacs.springidol.Ticket"/>
+
     <bean id="auditorium" class="com.vimemacs.springidol.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"/>
 
     <bean id="saxophone" class="com.vimemacs.springidol.Saxophone"/>
 
+    <bean id="piano" class="com.vimemacs.springidol.Piano"/>
+
     <bean id="kenny" class="com.vimemacs.springidol.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
-        <property name="instrument" ref="saxophone"/>
+        <property name="instrument" ref="piano"/>
     </bean>
 </beans>

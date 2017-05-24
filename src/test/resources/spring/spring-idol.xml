@@ -28,9 +28,11 @@
 
     <bean id="saxophone" class="com.vimemacs.springidol.Saxophone"/>
 
+    <bean id="piano" class="com.vimemacs.springidol.Piano"/>
+
     <bean id="kenny" class="com.vimemacs.springidol.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
-        <property name="instrument" ref="saxophone"/>
+        <property name="instrument" ref="piano"/>
     </bean>
 </beans>
