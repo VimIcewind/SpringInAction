@@ -20,7 +20,14 @@ public class JugglerTest {
         performer.perform();
         System.out.println();
 
+        System.out.println("constructor");
         performer = (Performer) ctx.getBean("dukeConstructor");
         performer.perform();
+        System.out.println();
+
+        System.out.println("autodetect");
+        performer = (Performer) ctx.getBean("dukeAutodetect");
+        performer.perform();
+        System.out.println();
     }
 }

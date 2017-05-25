@@ -20,6 +20,8 @@
 
     <bean id="dukeConstructor" class="com.vimemacs.springidol.PoeticJuggler" autowire="constructor"/>
 
+    <bean id="dukeAutodetect" class="com.vimemacs.springidol.PoeticJuggler" autowire="autodetect"/>
+
     <bean id="theStage" class="com.vimemacs.springidol.Stage" factory-method="getInstance"/>
 
     <bean id="ticket" class="com.vimemacs.springidol.Ticket" scope="prototype"/>
