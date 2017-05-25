@@ -46,12 +46,12 @@
 
     <bean id="instrument" class="com.vimemacs.springidol.Saxophone"/>
 
-    <bean id="kennyautowiringbyname" class="com.vimemacs.springidol.Instrumentalist" autowire="byName">
+    <bean id="kennyAutowiringByName" class="com.vimemacs.springidol.Instrumentalist" autowire="byName">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
     </bean>
 
-    <bean id="kennyautowiringbytype" class="com.vimemacs.springidol.Instrumentalist" autowire="byType">
+    <bean id="kennyAutowiringByType" class="com.vimemacs.springidol.Instrumentalist" autowire="byType">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
     </bean>
@@ -66,7 +66,7 @@
         </property>
     </bean>
 
-    <bean id="hankmap" class="com.vimemacs.springidol.OneManBandMap">
+    <bean id="hankMap" class="com.vimemacs.springidol.OneManBandMap">
         <property name="instruments">
             <map>
                 <entry key="GUITAR" value-ref="guitar"/>
@@ -76,7 +76,7 @@
         </property>
     </bean>
 
-    <bean id="hankprop" class="com.vimemacs.springidol.OneManBandProperties">
+    <bean id="hankProp" class="com.vimemacs.springidol.OneManBandProperties">
         <property name="instruments">
             <props>
                 <prop key="GUITAR">STRUM STRUM STRUM</prop>

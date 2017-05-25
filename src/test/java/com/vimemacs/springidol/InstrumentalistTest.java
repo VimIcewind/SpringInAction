@@ -24,16 +24,16 @@ public class InstrumentalistTest {
     }
 
     @Test
-    public void kennyautowiringbyname() throws PerformanceException {
+    public void kennyAutowiringByName() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-        Performer performer = (Performer) ctx.getBean("kennyautowiringbyname");
+        Performer performer = (Performer) ctx.getBean("kennyAutowiringByName");
         performer.perform();
     }
 
     @Test
-    public void kennyautowiringbytype() throws PerformanceException {
+    public void kennyAutowiringByType() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-        Performer performer = (Performer) ctx.getBean("kennyautowiringbytype");
+        Performer performer = (Performer) ctx.getBean("kennyAutowiringByType");
         performer.perform();
     }
 

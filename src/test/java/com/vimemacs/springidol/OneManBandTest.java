@@ -17,16 +17,16 @@ public class OneManBandTest {
     }
 
     @Test
-    public void hankmap() throws PerformanceException {
+    public void hankMap() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-        Performer performer = (Performer) ctx.getBean("hankmap");
+        Performer performer = (Performer) ctx.getBean("hankMap");
         performer.perform();
     }
 
     @Test
-    public void hankprop() throws PerformanceException {
+    public void hankProp() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-        Performer performer = (Performer) ctx.getBean("hankprop");
+        Performer performer = (Performer) ctx.getBean("hankProp");
         performer.perform();
     }
 }
