@@ -1,6 +1,7 @@
 package com.vimemacs.springidol;
 
 import com.vimemacs.exception.PerformanceException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by HWD on 2017/5/23.
@@ -8,6 +9,7 @@ import com.vimemacs.exception.PerformanceException;
 public class Instrumentalist implements Performer {
     int age;
     private String song;
+    @Autowired
     private Instrument instrument;
 
     public int getAge() {
