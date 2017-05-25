@@ -14,7 +14,13 @@ public class JugglerTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
         Performer performer = (Performer) ctx.getBean("duke");
         performer.perform();
+        System.out.println();
+
         performer = (Performer) ctx.getBean("poeticDuke");
+        performer.perform();
+        System.out.println();
+
+        performer = (Performer) ctx.getBean("dukeConstructor");
         performer.perform();
     }
 }
