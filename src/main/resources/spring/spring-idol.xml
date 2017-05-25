@@ -26,15 +26,15 @@
 
     <bean id="auditorium" class="com.vimemacs.springidol.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"/>
 
-    <bean id="saxophone" class="com.vimemacs.springidol.Saxophone"/>
+    <bean id="saxophone" class="com.vimemacs.springidol.Saxophone" autowire-candidate="false"/>
 
-    <bean id="piano" class="com.vimemacs.springidol.Piano"/>
+    <bean id="piano" class="com.vimemacs.springidol.Piano" autowire-candidate="false"/>
 
-    <bean id="guitar" class="com.vimemacs.springidol.Guitar"/>
+    <bean id="guitar" class="com.vimemacs.springidol.Guitar" autowire-candidate="false"/>
 
-    <bean id="cymbal" class="com.vimemacs.springidol.Cymbal"/>
+    <bean id="cymbal" class="com.vimemacs.springidol.Cymbal" autowire-candidate="false"/>
 
-    <bean id="harmonica" class="com.vimemacs.springidol.Harmonica"/>
+    <bean id="harmonica" class="com.vimemacs.springidol.Harmonica" autowire-candidate="false"/>
 
     <bean id="kenny" class="com.vimemacs.springidol.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
@@ -45,7 +45,13 @@
     <bean id="kennyp" class="com.vimemacs.springidol.Instrumentalist" p:song="Jingle Bells" p:instrument-ref="saxophone"/>
 
     <bean id="instrument" class="com.vimemacs.springidol.Saxophone"/>
-    <bean id="kennyautowiring" class="com.vimemacs.springidol.Instrumentalist" autowire="byName">
+
+    <bean id="kennyautowiringbyname" class="com.vimemacs.springidol.Instrumentalist" autowire="byName">
+        <property name="song" value="Jingle Bells"/>
+        <property name="age" value="37"/>
+    </bean>
+
+    <bean id="kennyautowiringbytype" class="com.vimemacs.springidol.Instrumentalist" autowire="byType">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
     </bean>

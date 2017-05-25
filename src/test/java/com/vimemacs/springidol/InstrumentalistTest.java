@@ -24,9 +24,16 @@ public class InstrumentalistTest {
     }
 
     @Test
-    public void kennyautowiring() throws PerformanceException {
+    public void kennyautowiringbyname() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-        Performer performer = (Performer) ctx.getBean("kennyautowiring");
+        Performer performer = (Performer) ctx.getBean("kennyautowiringbyname");
+        performer.perform();
+    }
+
+    @Test
+    public void kennyautowiringbytype() throws PerformanceException {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
+        Performer performer = (Performer) ctx.getBean("kennyautowiringbytype");
         performer.perform();
     }
 
