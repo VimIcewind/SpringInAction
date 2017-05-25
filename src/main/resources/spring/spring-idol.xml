@@ -44,6 +44,12 @@
 
     <bean id="kennyp" class="com.vimemacs.springidol.Instrumentalist" p:song="Jingle Bells" p:instrument-ref="saxophone"/>
 
+    <bean id="instrument" class="com.vimemacs.springidol.Saxophone"/>
+    <bean id="kennyautowiring" class="com.vimemacs.springidol.Instrumentalist" autowire="byName">
+        <property name="song" value="Jingle Bells"/>
+        <property name="age" value="37"/>
+    </bean>
+
     <bean id="hank" class="com.vimemacs.springidol.OneManBand">
         <property name="instruments">
             <list>
