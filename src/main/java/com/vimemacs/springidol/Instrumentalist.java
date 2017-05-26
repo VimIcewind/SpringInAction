@@ -4,6 +4,9 @@ import com.vimemacs.exception.PerformanceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 /**
  * Created by HWD on 2017/5/23.
  */
@@ -12,8 +15,8 @@ public class Instrumentalist implements Performer {
 
     private String song;
 
-    @Autowired
-    @Qualifier("instrument")
+    @Inject
+    @Named("instrument")
     private Instrument instrument;
 
     @Autowired
