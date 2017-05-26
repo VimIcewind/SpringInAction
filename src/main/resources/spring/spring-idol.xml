@@ -12,7 +12,8 @@
     <context:annotation-config />
 
     <context:component-scan base-package="com.vimemacs.springidol">
-
+        <context:include-filter type="assignable" expression="com.vimemacs.springidol.Instrument"/>
+        <context:exclude-filter type="annotation" expression="com.vimemacs.springidol.SkipIT"/>
     </context:component-scan>
 
     <bean id="duke" class="com.vimemacs.springidol.Juggler">
