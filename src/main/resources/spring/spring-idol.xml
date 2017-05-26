@@ -72,6 +72,11 @@
         <property name="instrument" ref="saxophone"/>
     </bean>
 
+    <bean id="eddie" class="com.vimemacs.springidol.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="age" value="27"/>
+    </bean>
+
     <bean id="hank" class="com.vimemacs.springidol.OneManBand">
         <property name="instruments">
             <list>
