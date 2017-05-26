@@ -116,5 +116,4 @@
         <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
 
-
 </beans>

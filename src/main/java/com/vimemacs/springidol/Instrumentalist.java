@@ -3,6 +3,7 @@ package com.vimemacs.springidol;
 import com.vimemacs.exception.PerformanceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,10 +14,14 @@ import javax.inject.Named;
 public class Instrumentalist implements Performer {
     int age;
 
+    @Value("My Love")
+    //@Value("#{systemProperties.myFavoriteSong}")
     private String song;
 
-    @Inject
-    @Named("instrument")
+    @Autowired
+    @Qualifier("instrument")
+    //@Inject
+    //@Named("instrument")
     private Instrument instrument;
 
     @Autowired
