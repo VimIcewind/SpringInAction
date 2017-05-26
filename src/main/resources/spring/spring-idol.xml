@@ -11,6 +11,10 @@
     <!-- 采用注解的方式注入 Bean -->
     <context:annotation-config />
 
+    <context:component-scan base-package="com.vimemacs.springidol">
+
+    </context:component-scan>
+
     <bean id="duke" class="com.vimemacs.springidol.Juggler">
         <constructor-arg value="15"/>
     </bean>

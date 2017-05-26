@@ -4,6 +4,7 @@ import com.vimemacs.exception.PerformanceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,6 +12,7 @@ import javax.inject.Named;
 /**
  * Created by HWD on 2017/5/23.
  */
+@Component("eddie")
 public class Instrumentalist implements Performer {
     int age;
 
