@@ -28,6 +28,7 @@ public class Audience {
     }
 
     // AOP 环绕通知
+    @Around("performance()")
     public void watchPerformance(ProceedingJoinPoint joinPoint) {
         try {
             // 表演之前
