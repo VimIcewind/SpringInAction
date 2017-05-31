@@ -9,7 +9,7 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-3.0.xsd
            http://www.springframework.org/schema/aop
-           http://www.springframework.org/schema/aop/spring-aop.xsd">
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <!-- 采用注解的方式注入 Bean -->
     <context:annotation-config />
@@ -128,6 +128,9 @@
 
     <aop:aspectj-autoproxy/>
 
+    <aop:config proxy-target-class="true"/>
+
+    <!--
     <aop:config proxy-target-class="true">
         <aop:aspect ref="audience">
             <aop:pointcut id="performance" expression="execution(* com.vimemacs.springidol.Performer.perform(..))"/>
@@ -169,4 +172,5 @@
                      delegate-ref="contestantDelegate"/>
         </aop:aspect>
     </aop:config>
+    -->
 </beans>
