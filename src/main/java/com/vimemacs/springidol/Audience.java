@@ -1,10 +1,12 @@
 package com.vimemacs.springidol;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by HWD on 2017/5/31.
  */
+@Component
 public class Audience {
     // 表演之前
     public void takeSeats() {

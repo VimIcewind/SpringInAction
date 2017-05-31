@@ -126,8 +126,6 @@
         <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
 
-    <bean id="audience" class="com.vimemacs.springidol.Audience"/>
-
     <aop:config proxy-target-class="true">
         <aop:aspect ref="audience">
             <aop:pointcut id="performance" expression="execution(* com.vimemacs.springidol.Performer.perform(..))"/>
@@ -142,6 +140,13 @@
         <aop:aspect ref="audience">
             <aop:pointcut id="performance2" expression="execution(* com.vimemacs.springidol.Performer.perform(..))"/>
             <aop:around pointcut-ref="performance2" method="watchPerformance"/>
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:aspect ref="magician">
+            <aop:pointcut id="thinking" expression="execution(* com.vimemacs.springidol.Thinker.thinkOfSomething(String)) and args(thoughts)"/>
+            <aop:before pointcut-ref="thinking" method="interceptThoughts" arg-names="thoughts"/>
         </aop:aspect>
     </aop:config>
 
