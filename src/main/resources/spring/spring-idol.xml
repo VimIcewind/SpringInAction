@@ -121,4 +121,6 @@
         <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
 
+    <bean id="audience" class="com.vimemacs.springidol.Audience"/>
+
 </beans>
