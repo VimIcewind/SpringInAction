@@ -150,4 +150,21 @@
         </aop:aspect>
     </aop:config>
 
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.vimemacs.springidol.Performer+"
+                     implement-interface="com.vimemacs.springidol.Contestant"
+                     default-impl="com.vimemacs.springidol.GraciousContestant"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="contestantDelegate" class="com.vimemacs.springidol.GraciousContestant"/>
+
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.vimemacs.springidol.Performer+"
+                     implement-interface="com.vimemacs.springidol.Contestant"
+                     delegate-ref="contestantDelegate"/>
+        </aop:aspect>
+    </aop:config>
 </beans>
