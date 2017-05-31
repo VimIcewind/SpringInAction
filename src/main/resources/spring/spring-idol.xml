@@ -138,4 +138,11 @@
         </aop:aspect>
     </aop:config>
 
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="audience">
+            <aop:pointcut id="performance2" expression="execution(* com.vimemacs.springidol.Performer.perform(..))"/>
+            <aop:around pointcut-ref="performance2" method="watchPerformance"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>
