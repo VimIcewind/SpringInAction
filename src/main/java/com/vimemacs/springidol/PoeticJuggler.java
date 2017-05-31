@@ -8,6 +8,9 @@ import com.vimemacs.exception.PerformanceException;
 public class PoeticJuggler extends Juggler {
     private Poem poem;
 
+    public PoeticJuggler() {
+    }
+
     public PoeticJuggler(Poem poem) {
         super();
         this.poem = poem;
@@ -22,5 +25,13 @@ public class PoeticJuggler extends Juggler {
         super.perform();
         System.out.println("While recting...");
         poem.recite();
+    }
+
+    public Poem getPoem() {
+        return poem;
+    }
+
+    public void setPoem(Poem poem) {
+        this.poem = poem;
     }
 }
