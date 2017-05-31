@@ -126,6 +126,8 @@
         <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
 
+    <aop:aspectj-autoproxy/>
+
     <aop:config proxy-target-class="true">
         <aop:aspect ref="audience">
             <aop:pointcut id="performance" expression="execution(* com.vimemacs.springidol.Performer.perform(..))"/>
