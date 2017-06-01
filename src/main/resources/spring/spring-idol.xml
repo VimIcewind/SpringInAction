@@ -126,6 +126,22 @@
         <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
 
+    <bean id="criticismEngine" class="com.vimemacs.springidol.CriticismEngineImpl">
+        <property name="criticismPool">
+            <list>
+                <value>I'm not being rude, but that was appalling.</value>
+                <value>You may be the least talented person in this show.</value>
+                <value>Do everyone a favor and keep your day job.</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+    <bean class="com.vimemacs.springidol.JudgeAspect" factory-method="aspectOf">
+        <property name="criticismEngine" ref="criticismEngine"/>
+    </bean>
+    -->
+
     <aop:aspectj-autoproxy/>
 
     <aop:config proxy-target-class="true"/>
