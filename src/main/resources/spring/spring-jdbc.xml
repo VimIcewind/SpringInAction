@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- 采用注解的方式注入 Bean -->
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.vimemacs.spitter">
+    </context:component-scan>
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>-->
+        <!--<property name="url" value="jdbc:hsqldb:hsql://localhost:3306/spitter/spitter"/>-->
+        <!--<property name="username" value="sa"/>-->
+        <!--<property name="password" value=""/>-->
+    <!--</bean>-->
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <property name="url" value="jdbc:hsqldb:hsql://localhost/spitter/spitter"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/spitter"/>
         <property name="username" value="sa"/>
         <property name="password" value=""/>
+    </bean>
+
+    <bean id="spitter" class="com.vimemacs.spitter.domain.Spitter">
+        <property name="username" value="VimEmacs"/>
+        <property name="password" value="Passw0rd"/>
+        <property name="fullname" value="VimEmacs"/>
+        <property name="id" value="1"/>
+    </bean>
+
+    <bean id="jdbcDemo" class="com.vimemacs.spitter.jdbc.JdbcDemo">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="simpleJdbcTemplateDemo" class="com.vimemacs.spitter.jdbc.SimpleJdbcTemplateDemo">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="spitterDao" class="com.vimemacs.spitter.persistence.SimpleJdbcTemplateSpitterDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
 </beans>
