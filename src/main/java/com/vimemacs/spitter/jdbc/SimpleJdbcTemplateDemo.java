@@ -7,12 +7,15 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by HWD on 2017/6/10.
  */
 public class SimpleJdbcTemplateDemo {
     private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT_SPITTER_PARAMS = "insert into spitter (username, password, fullname, email, update_by_email) values (:username, :password, :fullname, :email, :update_by_email)";
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ? where id = ?";
     private static final String SQL_SELECT_SPITTER = "select id, username, password, fullname from spitter where id = ?";
 
@@ -25,7 +28,19 @@ public class SimpleJdbcTemplateDemo {
                 spitter.getFullname(),
                 spitter.getEmail(),
                 spitter.isUpdateByEmail());
-//        spitter.setId(queryForIdentity());
+        // spitter.setId(queryForIdentity());
+    }
+
+    public void addSpitterParams(Spitter spitter) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("username", spitter.getUsername());
+        params.put("password", spitter.getPassword());
+        params.put("fullname", spitter.getFullname());
+        params.put("email", spitter.getEmail());
+        params.put("update_by_email", spitter.getUpdate_by_email());
+
+        jdbcTemplate.update(SQL_INSERT_SPITTER, params);
+        // spitter.setId(queryForIdentity());
     }
 
     public void saveSpitter(Spitter spitter) {

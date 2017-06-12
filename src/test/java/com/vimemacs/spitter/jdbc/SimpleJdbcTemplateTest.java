@@ -11,9 +11,16 @@ import javax.sql.DataSource;
  * Created by HWD on 2017/6/10.
  */
 public class SimpleJdbcTemplateTest {
-
     @Test
     public void addSpitterTest() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-jdbc.xml");
+        Spitter spitter = (Spitter) ctx.getBean("spitter");
+        SimpleJdbcTemplateDemo simpleJdbcTemplateDemo = (SimpleJdbcTemplateDemo) ctx.getBean("simpleJdbcTemplateDemo");
+        simpleJdbcTemplateDemo.addSpitter(spitter);
+    }
+
+    @Test
+    public void addSpitterParamsTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-jdbc.xml");
         Spitter spitter = (Spitter) ctx.getBean("spitter");
         SimpleJdbcTemplateDemo simpleJdbcTemplateDemo = (SimpleJdbcTemplateDemo) ctx.getBean("simpleJdbcTemplateDemo");
