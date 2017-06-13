@@ -9,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by HWD on 2017/6/10.
  */
 public class JdbcDemoTest {
-
     @Test
     public void addSpitterTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-jdbc.xml");
