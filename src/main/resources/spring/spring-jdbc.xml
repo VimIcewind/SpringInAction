@@ -41,7 +41,7 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
-    <bean id="spitterDao" class="com.vimemacs.spitter.persistence.JdbcSpitterDAO">
+    <bean id="spitterDao" class="com.vimemacs.spitter.persistence.JdbcSpitterDao">
         <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
         <property name="dataSource" ref="dataSource"/>
     </bean>

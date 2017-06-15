@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Created by HWD on 2017/6/10.
  */
-public class SimpleJdbcTemplateSpitterDao implements SpitterDAO {
+public class SimpleJdbcTemplateSpitterDao implements SpitterDao {
     private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
     private static final String SQL_INSERT_SPITTER_PARAMS = "insert into spitter (username, password, fullname, email, update_by_email) values (:username, :password, :fullname, :email, :update_by_email)";
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ? where id = ?";

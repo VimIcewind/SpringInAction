@@ -8,12 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by HWD on 2017/6/10.
  */
-public class JdbcSpitterDAOTest {
+public class JdbcSpitterDaoTest {
     @Test
     public void addSpitterTest() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-jdbc.xml");
         Spitter spitter = (Spitter) ctx.getBean("spitter");
-        JdbcSpitterDAO jdbcSpitterDAO = (JdbcSpitterDAO) ctx.getBean("spitterDao");
-        jdbcSpitterDAO.addSpitter(spitter);
+        JdbcSpitterDao jdbcSpitterDao = (JdbcSpitterDao) ctx.getBean("spitterDao");
+        jdbcSpitterDao.addSpitter(spitter);
     }
 }

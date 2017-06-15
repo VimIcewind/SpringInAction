@@ -5,7 +5,7 @@ import com.vimemacs.spitter.domain.Spitter;
 /**
  * Created by HWD on 2017/6/10.
  */
-public interface SpitterDAO {
+public interface SpitterDao {
     public void addSpitter(Spitter spitter);
 
     public Spitter getSpitterById(long id);

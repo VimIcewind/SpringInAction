@@ -3,18 +3,15 @@ package com.vimemacs.spitter.persistence;
 import com.vimemacs.spitter.domain.Spitter;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * Created by HWD on 2017/6/10.
  */
-public class JdbcSpitterDAO extends SimpleJdbcDaoSupport implements SpitterDAO {
+public class JdbcSpitterDao extends SimpleJdbcDaoSupport implements SpitterDao {
     private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ? where id = ?";
     private static final String SQL_SELECT_SPITTER = "select id, username, password, fullname from spitter where id = ?";
