@@ -1,4 +1,4 @@
-package com.vimemacs.spitter.jdbc;
+package com.vimemacs.spitter.persistence;
 
 import com.vimemacs.spitter.domain.Spitter;
 import com.vimemacs.spitter.persistence.HibernateSpitterDao;
