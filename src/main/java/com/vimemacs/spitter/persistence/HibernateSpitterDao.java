@@ -1,6 +1,7 @@
 package com.vimemacs.spitter.persistence;
 
 import com.vimemacs.spitter.domain.Spitter;
+import com.vimemacs.spitter.domain.Spittle;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,10 @@ public class HibernateSpitterDao implements SpitterDao {
 
     public void saveSpitter(Spitter spitter) {
         currentSession().update(spitter);
+    }
+
+    public void saveSpittle(Spittle spittle) {
+
     }
 
     public SessionFactory getSessionFactory() {

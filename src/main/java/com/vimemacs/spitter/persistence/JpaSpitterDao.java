@@ -1,6 +1,7 @@
 package com.vimemacs.spitter.persistence;
 
 import com.vimemacs.spitter.domain.Spitter;
+import com.vimemacs.spitter.domain.Spittle;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,5 +32,9 @@ public class JpaSpitterDao implements SpitterDao{
 
     public void saveSpitter(Spitter spitter) {
         em.merge(spitter);
+    }
+
+    public void saveSpittle(Spittle spittle) {
+
     }
 }

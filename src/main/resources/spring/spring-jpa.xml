@@ -11,6 +11,21 @@
         <property name="password" value=""/>
     </bean>
 
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="spitterService" class="com.vimemacs.spitter.service.SpitterServiceImpl">
+        <property name="txTemplate">
+            <bean class="org.springframework.transaction.support.TransactionTemplate">
+                <property name="transactionManager" ref="transactionManager"/>
+            </bean>
+
+        </property>
+    </bean>
+
+    <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect"/>
+
     <!--<bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">-->
         <!--<property name="persistenceUnitName" value="spitterPU"/>-->
     <!--</bean>-->

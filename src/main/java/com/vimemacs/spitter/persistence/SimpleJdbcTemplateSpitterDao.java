@@ -1,6 +1,7 @@
 package com.vimemacs.spitter.persistence;
 
 import com.vimemacs.spitter.domain.Spitter;
+import com.vimemacs.spitter.domain.Spittle;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
@@ -48,6 +49,10 @@ public class SimpleJdbcTemplateSpitterDao implements SpitterDao {
                 spitter.getPassword(),
                 spitter.getFullname(),
                 spitter.getId());
+    }
+
+    public void saveSpittle(Spittle spittle) {
+
     }
 
     public Spitter getSpitterById(long id) {
