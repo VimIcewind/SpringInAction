@@ -6,13 +6,13 @@
   <s:url value="/spitters/${spittle.spitter.username}" var="spitter_url" />
   <tr>
     <td>
-        <img src="<s:url value="/resources/images/spitter_avatar.png"/>" 
+        <img src="<s:url value="/resources/images/spitter_avatar.png"/>"
              width="48" height="48" /></td>
     <td><a href="${spitter_url}">${spittle.spitter.username}</a> <small><c:out value="${spittle.text}" /> <small><c:out value="${spittle.when}" /></small></small>
     <s:url value="/spittles/${spittle.id}" var="spittle_url" />
     <sf:form method="delete" action="${spittle_url}" name="deleteSpittle_${spittle.id}" cssClass="deleteForm">
       <input type="submit" value="Delete"/>
-    </sf:form>      
+    </sf:form>
     </td>
   </tr>
 </table>
