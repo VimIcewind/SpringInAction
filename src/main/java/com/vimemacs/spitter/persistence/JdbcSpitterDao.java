@@ -19,6 +19,8 @@ public class JdbcSpitterDao extends SimpleJdbcDaoSupport implements SpitterDao {
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ? where id = ?";
     private static final String SQL_SELECT_SPITTER = "select id, username, password, fullname from spitter where id = ?";
     private static final String SQL_SELECT_RECENT_SPITTLE = "select id, spitter_id, text, time from spittle where time > ?";
+    private static final String SQL_SELECT_SPITTER_BY_USERNAME = "select min(id), username, password, fullname from spitter where username = ?";
+    private static final String SQL_SELECT_SPITTLES_BY_USERNAME = "select le.id, spitter_id, text, time from spittle le, spitter er where le.spitter_id = er.id and er.username = ?";
 
     private DataSource dataSource;
 
@@ -56,6 +58,36 @@ public class JdbcSpitterDao extends SimpleJdbcDaoSupport implements SpitterDao {
                 return spittle;
             }
         }, dt.toDate());
+    }
+
+    public Spitter getSpitterByUsername(String username) {
+        return getSimpleJdbcTemplate().queryForObject(SQL_SELECT_SPITTER_BY_USERNAME, new ParameterizedRowMapper<Spitter>() {
+                    public Spitter mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Spitter spitter = new Spitter();
+                        spitter.setId(rs.getLong(1));
+                        spitter.setUsername(rs.getString(2));
+                        spitter.setPassword(rs.getString(3));
+                        spitter.setFullname(rs.getString(4));
+                        return spitter;
+                    }
+                },
+                username
+        );
+    }
+
+    public List<Spittle> getSpittlesByUsername(String username) {
+        return getSimpleJdbcTemplate().query(SQL_SELECT_SPITTLES_BY_USERNAME, new ParameterizedRowMapper<Spittle>() {
+                    public Spittle mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Spittle spittle = new Spittle();
+                        spittle.setId(rs.getLong(1));
+                        spittle.setSpitter(getSpitterById(rs.getLong(2)));
+                        spittle.setText(rs.getString(3));
+                        spittle.setTime(rs.getDate(4));
+                        return spittle;
+                    }
+                },
+                username
+        );
     }
 
     public Spitter getSpitterById(long id) {

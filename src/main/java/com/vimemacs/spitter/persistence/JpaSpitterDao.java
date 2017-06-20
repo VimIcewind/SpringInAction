@@ -42,4 +42,12 @@ public class JpaSpitterDao implements SpitterDao{
     public List<Spittle> getRecentSpittle() {
         return null;
     }
+
+    public Spitter getSpitterByUsername(String username) {
+        return null;
+    }
+
+    public List<Spittle> getSpittlesByUsername(String username) {
+        return null;
+    }
 }

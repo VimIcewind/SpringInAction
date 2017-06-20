@@ -1,5 +1,6 @@
 package com.vimemacs.spitter.service;
 
+import com.vimemacs.spitter.domain.Spitter;
 import com.vimemacs.spitter.domain.Spittle;
 import com.vimemacs.spitter.persistence.SpitterDao;
 import org.springframework.stereotype.Component;
@@ -29,8 +30,8 @@ public class SpitterServiceImpl implements SpitterService {
     }
 
     //    public void saveSpittle(Spittle spittle) {
-//        spitterDao.saveSpittle(spittle);
-//    }
+    //        spitterDao.saveSpittle(spittle);
+    //    }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void saveSpittle(final Spittle spittle) {
@@ -67,5 +68,14 @@ public class SpitterServiceImpl implements SpitterService {
         List<Spittle> recentSpittles = spitterDao.getRecentSpittle();
         reverse(recentSpittles);
         return recentSpittles.subList(0, min(49, recentSpittles.size()));
+    }
+
+    public Spitter getSpitter(String username) {
+        return spitterDao.getSpitterByUsername(username);
+    }
+
+    public List<Spittle> getSpittlesForSpitter(String username) {
+        List<Spittle> spitterSpittles = spitterDao.getSpittlesByUsername(username);
+        return spitterSpittles;
     }
 }

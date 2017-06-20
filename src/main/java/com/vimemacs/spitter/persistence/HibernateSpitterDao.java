@@ -48,6 +48,14 @@ public class HibernateSpitterDao implements SpitterDao {
         return null;
     }
 
+    public Spitter getSpitterByUsername(String username) {
+        return null;
+    }
+
+    public List<Spittle> getSpittlesByUsername(String username) {
+        return null;
+    }
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

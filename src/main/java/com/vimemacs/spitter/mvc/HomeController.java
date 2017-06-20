@@ -24,7 +24,7 @@ public class HomeController {
     }
 
     // 处理对首页的请求
-    @RequestMapping({"/", "/home"})
+    @RequestMapping("/home")
     public String showHomePage(Map<String, Object> model) {
         // 将 Spittle 放入模型中
         model.put("spittles", spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE));

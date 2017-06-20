@@ -1,5 +1,6 @@
 package com.vimemacs.spitter.service;
 
+import com.vimemacs.spitter.domain.Spitter;
 import com.vimemacs.spitter.domain.Spittle;
 
 import java.util.List;
@@ -9,4 +10,8 @@ import java.util.List;
  */
 public interface SpitterService {
     List<Spittle> getRecentSpittles(int count);
+
+    Spitter getSpitter(String username);
+
+    List<Spittle> getSpittlesForSpitter(String username);
 }

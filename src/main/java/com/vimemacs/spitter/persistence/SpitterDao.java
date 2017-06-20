@@ -18,4 +18,8 @@ public interface SpitterDao {
     void saveSpittle(Spittle spittle);
 
     List<Spittle> getRecentSpittle();
+
+    Spitter getSpitterByUsername(String username);
+
+    List<Spittle> getSpittlesByUsername(String username);
 }

@@ -27,7 +27,7 @@
     </bean>
 
     <bean id="spitter" class="com.vimemacs.spitter.domain.Spitter">
-        <property name="username" value="VimEmacs"/>
+        <property name="username" value="Emacs"/>
         <property name="password" value="Passw0rd"/>
         <property name="fullname" value="VimEmacs"/>
         <property name="id" value="1"/>

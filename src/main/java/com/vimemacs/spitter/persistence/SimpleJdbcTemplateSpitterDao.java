@@ -60,6 +60,14 @@ public class SimpleJdbcTemplateSpitterDao implements SpitterDao {
         return null;
     }
 
+    public Spitter getSpitterByUsername(String username) {
+        return null;
+    }
+
+    public List<Spittle> getSpittlesByUsername(String username) {
+        return null;
+    }
+
     public Spitter getSpitterById(long id) {
         return jdbcTemplate.queryForObject(SQL_SELECT_SPITTER, new ParameterizedRowMapper<Spitter>() {
                     public Spitter mapRow(ResultSet rs, int rowNum) throws SQLException {
