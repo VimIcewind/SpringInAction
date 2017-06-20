@@ -8,7 +8,10 @@
     <!-- 如果不指定, ContextLoaderListener 默认会载入 /WEB-INF/applicationContext.xml -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/*.xml</param-value>
+        <param-value>
+            classpath:spring/spitter-servlet.xml
+            classpath:spring/spring-jdbc.xml
+        </param-value>
     </context-param>
     <!-- Spring ApplicationContext 载入 -->
     <listener>
@@ -35,21 +38,21 @@
 
     <!-- 配置 Spring Web MVC 前端控制器 -->
     <servlet>
-        <servlet-name>springMVC</servlet-name>
+        <servlet-name>spitter</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <!-- SpringMVC 配置文件 -->
             <!-- 如果不指定, DispatcherServlet 默认会载入 /WEB-INF/springMVC-servlet.xml -->
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springMVC-servlet.xml</param-value>
+            <param-value>classpath:spring/spitter-servlet.xml</param-value>
         </init-param>
         <!-- 启动时加载 -->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>springMVC</servlet-name>
-        <!-- 拦截 *.htm -->
-        <url-pattern>*.htm</url-pattern>
+        <servlet-name>spitter</servlet-name>
+        <!-- 拦截所有请求 -->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <!-- 欢迎页面 -->

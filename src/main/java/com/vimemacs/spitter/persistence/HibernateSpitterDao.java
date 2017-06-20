@@ -7,6 +7,8 @@ import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by HWD on 2017/6/15.
  */
@@ -40,6 +42,10 @@ public class HibernateSpitterDao implements SpitterDao {
 
     public void saveSpittle(Spittle spittle) {
 
+    }
+
+    public List<Spittle> getRecentSpittle() {
+        return null;
     }
 
     public SessionFactory getSessionFactory() {

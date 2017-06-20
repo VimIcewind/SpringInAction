@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by HWD on 2017/6/15.
@@ -36,5 +37,9 @@ public class JpaSpitterDao implements SpitterDao{
 
     public void saveSpittle(Spittle spittle) {
 
+    }
+
+    public List<Spittle> getRecentSpittle() {
+        return null;
     }
 }

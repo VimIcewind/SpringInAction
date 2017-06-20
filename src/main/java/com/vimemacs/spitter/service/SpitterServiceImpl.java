@@ -2,11 +2,17 @@ package com.vimemacs.spitter.service;
 
 import com.vimemacs.spitter.domain.Spittle;
 import com.vimemacs.spitter.persistence.SpitterDao;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
+
+import java.util.List;
+
+import static java.lang.Math.min;
+import static java.util.Collections.reverse;
 
 /**
  * Created by HWD on 2017/6/16.
@@ -17,7 +23,12 @@ public class SpitterServiceImpl implements SpitterService {
 
     private TransactionTemplate txTemplate;
 
-//    public void saveSpittle(Spittle spittle) {
+    public SpitterServiceImpl(SpitterDao spitterDao, TransactionTemplate txTemplate) {
+        this.spitterDao = spitterDao;
+        this.txTemplate = txTemplate;
+    }
+
+    //    public void saveSpittle(Spittle spittle) {
 //        spitterDao.saveSpittle(spittle);
 //    }
 
@@ -50,5 +61,11 @@ public class SpitterServiceImpl implements SpitterService {
 
     public void setTxTemplate(TransactionTemplate txTemplate) {
         this.txTemplate = txTemplate;
+    }
+
+    public List<Spittle> getRecentSpittles(int count) {
+        List<Spittle> recentSpittles = spitterDao.getRecentSpittle();
+        reverse(recentSpittles);
+        return recentSpittles.subList(0, min(49, recentSpittles.size()));
     }
 }

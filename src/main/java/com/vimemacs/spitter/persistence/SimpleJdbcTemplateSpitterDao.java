@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,6 +54,10 @@ public class SimpleJdbcTemplateSpitterDao implements SpitterDao {
 
     public void saveSpittle(Spittle spittle) {
 
+    }
+
+    public List<Spittle> getRecentSpittle() {
+        return null;
     }
 
     public Spitter getSpitterById(long id) {
