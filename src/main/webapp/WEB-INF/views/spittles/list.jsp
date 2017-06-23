@@ -17,7 +17,7 @@
                 <td>
                     <a href="<s:url value="/spitters/${spittle.spitter.username}"/>">${spittle.spitter.username}</a>
                     <c:out value="${spittle.text}"/><br/>
-                    <c:out value="${spittle.time}" />
+                    <c:out value="${spittle.time}"/>
                 </td>
             </tr>
         </c:forEach>

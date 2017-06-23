@@ -9,7 +9,7 @@
 
     <ol class="spittle-list">
         <c:forEach var="spittle" items="${spittles}">
-            <s:url value="/Spitters/{spitterName}" var="spitter_url">
+            <s:url value="/spitters/{spitterName}" var="spitter_url">
                 <s:param name="spitterName" value="${spittle.spitter.username}"/>
             </s:url>
             <li>

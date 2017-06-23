@@ -78,4 +78,8 @@ public class SpitterServiceImpl implements SpitterService {
         List<Spittle> spitterSpittles = spitterDao.getSpittlesByUsername(username);
         return spitterSpittles;
     }
+
+    public void saveSpitter(Spitter spitter) {
+        spitterDao.addSpitter(spitter);
+    }
 }

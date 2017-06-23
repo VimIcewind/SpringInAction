@@ -1,16 +1,16 @@
-package com.vimemacs.spitter;
+package com.vimemacs.spitter.mvc;
 
 import com.vimemacs.spitter.domain.Spittle;
-import com.vimemacs.spitter.mvc.HomeController;
 import com.vimemacs.spitter.service.SpitterService;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
 
-import static com.vimemacs.spitter.mvc.HomeController.*;
-import static java.util.Arrays.*;
-import static org.junit.Assert.*;
+import static com.vimemacs.spitter.mvc.HomeController.DEFAULT_SPITTLES_PER_PAGE;
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.*;
 
 /**

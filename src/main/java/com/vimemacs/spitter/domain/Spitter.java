@@ -2,6 +2,9 @@ package com.vimemacs.spitter.domain;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 /**
  * Created by HWD on 2017/6/10.
  */
@@ -9,27 +12,31 @@ import org.springframework.stereotype.Component;
 public class Spitter {
     private Long id;
 
+    @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters long.")
+    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "Username must be alphanumeric with no spaces")
     private String username;
 
+    @Size(min = 6, max = 20, message = "The Password must be at least 6 characters long.")
     private String password;
 
+    @Size(min = 3, max = 50, message = "Your full name must be between 3 and 50 characters long.")
     private String fullname;
 
+    @Pattern(regexp = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}", message = "Invalid email address.")
     private String email;
 
-    private String update_by_email;
     private boolean updateByEmail;
 
     public Spitter() {
     }
 
-    public Spitter(Long id, String username, String password, String fullname, String email, String update_by_email) {
+    public Spitter(Long id, String username, String password, String fullname, String email, boolean updateByEmail) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
-        this.update_by_email = update_by_email;
+        this.updateByEmail = updateByEmail;
     }
 
     public Long getId() {
@@ -70,14 +77,6 @@ public class Spitter {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getUpdate_by_email() {
-        return update_by_email;
-    }
-
-    public void setUpdate_by_email(String update_by_email) {
-        this.update_by_email = update_by_email;
     }
 
     public boolean isUpdateByEmail() {

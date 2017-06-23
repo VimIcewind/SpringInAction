@@ -15,8 +15,8 @@ import java.util.Map;
  * Created by HWD on 2017/6/10.
  */
 public class SimpleJdbcTemplateSpitterDao implements SpitterDao {
-    private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
-    private static final String SQL_INSERT_SPITTER_PARAMS = "insert into spitter (username, password, fullname, email, update_by_email) values (:username, :password, :fullname, :email, :update_by_email)";
+    private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, updateByEmail) values (?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT_SPITTER_PARAMS = "insert into spitter (username, password, fullname, email, updateByEmail) values (:username, :password, :fullname, :email, :updateByEmail)";
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ? where id = ?";
     private static final String SQL_SELECT_SPITTER = "select id, username, password, fullname from spitter where id = ?";
 
@@ -38,7 +38,7 @@ public class SimpleJdbcTemplateSpitterDao implements SpitterDao {
         params.put("password", spitter.getPassword());
         params.put("fullname", spitter.getFullname());
         params.put("email", spitter.getEmail());
-        params.put("update_by_email", spitter.getUpdate_by_email());
+        params.put("updateByEmail", spitter.isUpdateByEmail());
 
         jdbcTemplate.update(SQL_INSERT_SPITTER, params);
         // spitter.setId(queryForIdentity());

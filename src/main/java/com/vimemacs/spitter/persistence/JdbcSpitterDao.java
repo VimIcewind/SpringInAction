@@ -15,7 +15,7 @@ import java.util.List;
  * Created by HWD on 2017/6/10.
  */
 public class JdbcSpitterDao extends SimpleJdbcDaoSupport implements SpitterDao {
-    private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, updateByEmail) values (?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ? where id = ?";
     private static final String SQL_SELECT_SPITTER = "select id, username, password, fullname from spitter where id = ?";
     private static final String SQL_SELECT_RECENT_SPITTLE = "select id, spitter_id, text, time from spittle where time > ?";
@@ -47,7 +47,7 @@ public class JdbcSpitterDao extends SimpleJdbcDaoSupport implements SpitterDao {
     }
 
     public List<Spittle> getRecentSpittle() {
-        DateTime dt = new DateTime().minusDays(1);
+        DateTime dt = new DateTime().minusDays(30);
         return getSimpleJdbcTemplate().query(SQL_SELECT_RECENT_SPITTLE, new ParameterizedRowMapper<Spittle>() {
             public Spittle mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Spittle spittle = new Spittle();
